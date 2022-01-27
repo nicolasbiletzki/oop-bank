@@ -1,4 +1,5 @@
-﻿using System;
+﻿using oop_bank.Classes;
+using System;
 
 namespace oop_bank
 {
@@ -6,7 +7,7 @@ namespace oop_bank
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Layout.TelaPrincipal();
         }
     }
 }

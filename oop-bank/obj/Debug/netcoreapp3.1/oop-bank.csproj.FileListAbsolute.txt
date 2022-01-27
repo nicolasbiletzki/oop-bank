@@ -1,0 +1,13 @@
+C:\Users\NOTE\source\repos\oop-bank\oop-bank\bin\Debug\netcoreapp3.1\oop-bank.exe
+C:\Users\NOTE\source\repos\oop-bank\oop-bank\bin\Debug\netcoreapp3.1\oop-bank.deps.json
+C:\Users\NOTE\source\repos\oop-bank\oop-bank\bin\Debug\netcoreapp3.1\oop-bank.runtimeconfig.json
+C:\Users\NOTE\source\repos\oop-bank\oop-bank\bin\Debug\netcoreapp3.1\oop-bank.runtimeconfig.dev.json
+C:\Users\NOTE\source\repos\oop-bank\oop-bank\bin\Debug\netcoreapp3.1\oop-bank.dll
+C:\Users\NOTE\source\repos\oop-bank\oop-bank\bin\Debug\netcoreapp3.1\oop-bank.pdb
+C:\Users\NOTE\source\repos\oop-bank\oop-bank\obj\Debug\netcoreapp3.1\oop-bank.csprojAssemblyReference.cache
+C:\Users\NOTE\source\repos\oop-bank\oop-bank\obj\Debug\netcoreapp3.1\oop-bank.AssemblyInfoInputs.cache
+C:\Users\NOTE\source\repos\oop-bank\oop-bank\obj\Debug\netcoreapp3.1\oop-bank.AssemblyInfo.cs
+C:\Users\NOTE\source\repos\oop-bank\oop-bank\obj\Debug\netcoreapp3.1\oop-bank.csproj.CoreCompileInputs.cache
+C:\Users\NOTE\source\repos\oop-bank\oop-bank\obj\Debug\netcoreapp3.1\oop-bank.dll
+C:\Users\NOTE\source\repos\oop-bank\oop-bank\obj\Debug\netcoreapp3.1\oop-bank.pdb
+C:\Users\NOTE\source\repos\oop-bank\oop-bank\obj\Debug\netcoreapp3.1\oop-bank.genruntimeconfig.cache

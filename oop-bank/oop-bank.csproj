@@ -6,4 +6,8 @@
     <RootNamespace>oop_bank</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Contratos\" />
+  </ItemGroup>
+
 </Project>
