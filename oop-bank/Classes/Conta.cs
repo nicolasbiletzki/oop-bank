@@ -9,7 +9,7 @@ namespace oop_bank.Classes
     {
         public Conta()
         {
-            this.NumeroDaConta = "0001";
+            this.NumeroDaAgencia = "0001";
             Conta.NumeroDaContaSequencial++;
         }
 
