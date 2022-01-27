@@ -152,12 +152,16 @@ namespace oop_bank.Classes
             switch (opcao)
             {
                 case 1:
+                    TelaDeposito(pessoa);
                     break;
                 case 2:
+                    TelaSaque(pessoa);
                     break;
                 case 3:
+                    TelaSaldo(pessoa);
                     break;
                 case 4:
+                    TelaExtrato(pessoa);
                     break;
                 case 5:
                     TelaPrincipal();
@@ -171,5 +175,164 @@ namespace oop_bank.Classes
 
 
         }
+
+        private static void TelaDeposito(Pessoa pessoa)
+        {
+            Console.Clear();
+            TelaBoasVindas(pessoa);
+            Console.WriteLine("         Digite o valor do depósito:      ");
+            double valor = double.Parse(Console.ReadLine());
+            Console.WriteLine("         ===========================      ");
+
+            pessoa.Conta.Depositar(valor);
+
+            Console.Clear();
+            TelaBoasVindas(pessoa);
+
+
+            Console.WriteLine("                                          ");
+            Console.WriteLine("                                          ");
+            Console.WriteLine("         Depósito realizado com sucesso!  ");
+            Console.WriteLine("         ===============================  ");
+            Console.WriteLine("                                          ");
+
+
+            TelaVoltarLogado(pessoa);
+
+        }
+
+        private static void TelaVoltarLogado(Pessoa pessoa)
+        {
+            Console.WriteLine("         Entre com uma opção abaixo:      ");
+            Console.WriteLine("         ===========================      ");
+            Console.WriteLine("         1 - Voltar para minha conta      ");
+            Console.WriteLine("         ===========================      ");
+            Console.WriteLine("         2 - Sair                         ");
+            Console.WriteLine("         ===========================      ");
+
+            opcao = int.Parse(Console.ReadLine());
+
+            if(opcao == 1)
+            {
+                TelaContaLogada(pessoa);
+            }
+            else
+            {
+                TelaPrincipal();
+            }
+
+        }
+
+        private static void TelaVoltarDeslogado()
+        {
+            Console.WriteLine("         Entre com uma opção abaixo:           ");
+            Console.WriteLine("         ================================      ");
+            Console.WriteLine("         1 - Voltar para o Menu Principal      ");
+            Console.WriteLine("         ================================      ");
+            Console.WriteLine("         2 - Sair                              ");
+            Console.WriteLine("         ================================      ");
+
+            opcao = int.Parse(Console.ReadLine());
+
+            if (opcao == 1)
+            {
+                TelaPrincipal();
+            }
+            else
+            {
+                Console.WriteLine("         Opção inválida                    ");
+                Console.WriteLine("         ============================      ");
+            }
+
+        }
+        private static void TelaSaque(Pessoa pessoa)
+        {
+            Console.Clear();
+            TelaBoasVindas(pessoa);
+            Console.WriteLine("         Digite o valor do saque:         ");
+            double valor = double.Parse(Console.ReadLine());
+            Console.WriteLine("         ===========================      ");
+
+            bool okSaque = pessoa.Conta.Sacar(valor);
+
+            Console.Clear();
+            TelaBoasVindas(pessoa);
+
+            if(okSaque == true)
+            {
+                Console.WriteLine("                                          ");
+                Console.WriteLine("                                          ");
+                Console.WriteLine("         Saque realizado com sucesso!     ");
+                Console.WriteLine("         ===============================  ");
+                Console.WriteLine("                                          ");
+
+            }
+            else
+            {
+                Console.WriteLine("                                          ");
+                Console.WriteLine("                                          ");
+                Console.WriteLine("         Saldo insuficiente!              ");
+                Console.WriteLine("         ===============================  ");
+                Console.WriteLine("                                          ");
+
+            }
+
+
+            TelaVoltarLogado(pessoa);
+
+        }
+
+        private static void TelaSaldo(Pessoa pessoa)
+        {
+            Console.Clear();
+            TelaBoasVindas(pessoa);
+
+            Console.WriteLine($"         Seu saldo é: {pessoa.Conta.ConsultarSaldo()}        ");
+            Console.WriteLine("         ===========================      ");
+
+            TelaVoltarLogado(pessoa);
+        }
+
+        private static void TelaExtrato(Pessoa pessoa)
+        {
+            Console.Clear();
+            TelaBoasVindas(pessoa);
+
+            if (pessoa.Conta.Extrato().Any())
+            {
+
+                double total = pessoa.Conta.Extrato().Sum(x => x.Valor);
+
+                foreach(Extrato extrato in pessoa.Conta.Extrato())
+                {
+                    Console.WriteLine("                                                         ");
+                    Console.WriteLine($"         Data: {extrato.Data.ToString("dd/MM/yyyy HH:mm:ss")}      ");
+                    Console.WriteLine($"         Tipo de Movimentação: {extrato.Descricao}      ");
+                    Console.WriteLine($"         Valor: {extrato.Valor}      ");
+
+                    Console.WriteLine("         ===========================      ");
+
+                }
+
+
+                Console.WriteLine("                                          ");
+                Console.WriteLine("                                          ");
+                Console.WriteLine($"         SUB TOTAL: {total}              ");
+                Console.WriteLine("         ===========================      ");
+            }
+            else
+            {
+                Console.WriteLine("         Não há extrato a ser exibido      ");
+                Console.WriteLine("         ============================      ");
+
+            }
+
+            Console.WriteLine($"         Seu extrato é: {pessoa.Conta.ConsultarSaldo()}        ");
+            Console.WriteLine("         ===========================      ");
+            Console.WriteLine("");
+
+            TelaVoltarLogado(pessoa);
+        }
+
     }
 }

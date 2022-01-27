@@ -1,4 +1,5 @@
-﻿using System;
+﻿using oop_bank.Classes;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,6 +13,7 @@ namespace oop_bank.Contratos
         string GetCodigoDoBanco();
         string GetNumeroAgencia();
         string GetNumeroDaConta();
+        List<Extrato> Extrato();
 
     }
 }

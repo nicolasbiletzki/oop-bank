@@ -11,6 +11,7 @@ namespace oop_bank.Classes
         {
             this.NumeroDaAgencia = "0001";
             Conta.NumeroDaContaSequencial++;
+            this.Movimentacoes = new List<Extrato>();
         }
 
         public double Saldo { get; protected set; }
@@ -19,6 +20,9 @@ namespace oop_bank.Classes
 
         public static int NumeroDaContaSequencial { get; private set; }
 
+        private List<Extrato> Movimentacoes;
+
+
         public double ConsultarSaldo()
         {
             return this.Saldo;
@@ -26,12 +30,18 @@ namespace oop_bank.Classes
 
         public void Depositar(double valor)
         {
+            DateTime dataAtual = DateTime.Now;
+            this.Movimentacoes.Add(new Extrato(dataAtual, "Depósito ", valor));
+            
             this.Saldo += valor;
         }
         public bool Sacar(double valor)
         {
-            if(valor > this.Saldo)
+            if(valor > this.ConsultarSaldo())
             return false;
+
+            DateTime dataAtual = DateTime.Now;
+            this.Movimentacoes.Add(new Extrato(dataAtual, "Saque ", -valor));
 
 
             this.Saldo -= valor;
@@ -53,6 +63,9 @@ namespace oop_bank.Classes
             return this.NumeroDaConta;
         }
 
-
+        public List<Extrato> Extrato()
+        {
+            return this.Movimentacoes;
+        }
     }
 }
