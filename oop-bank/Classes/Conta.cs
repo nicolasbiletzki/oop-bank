@@ -15,7 +15,7 @@ namespace oop_bank.Classes
 
         public double Saldo { get; protected set; }
         public string NumeroDaAgencia { get; private set; }
-        public string NumeroDaConta { get; private set; }
+        public string NumeroDaConta { get; protected set; }
 
         public static int NumeroDaContaSequencial { get; private set; }
 

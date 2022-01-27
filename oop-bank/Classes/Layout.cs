@@ -7,6 +7,7 @@ namespace oop_bank.Classes
     public class Layout
     {
 
+        private static List<Pessoa> pessoas = new List<Pessoa>();
         private static int opcao = 0;
 
 
@@ -32,7 +33,7 @@ namespace oop_bank.Classes
                     TelaCriarConta();
                     break;
                 case 2:
-                    Console.WriteLine("Opção 2");
+                    TelaLogin();
                     break;
                 default:
                     Console.WriteLine("Opção Inválida");
@@ -42,7 +43,6 @@ namespace oop_bank.Classes
 
 
         }
-
 
         private static void TelaCriarConta()
         {
@@ -58,11 +58,22 @@ namespace oop_bank.Classes
             string senha = Console.ReadLine();
             Console.WriteLine("         ===========================      ");
 
-            Console.WriteLine(nome);
-            Console.WriteLine(cpf);
-            Console.WriteLine(senha);
 
+            ContaCorrente contaCorrente = new ContaCorrente();
+            Pessoa pessoa = new Pessoa();
 
+            pessoa.SetNome(nome);
+            pessoa.SetCPF(cpf);
+            pessoa.SetSenha(senha);
+            pessoa.Conta = contaCorrente;
+
+            pessoas.Add(pessoa);
+
+            Console.Clear();
+
+            Console.WriteLine("                                          ");
+            Console.WriteLine("         Conta cadastrada com sucesso!    ");
+            Console.WriteLine("         =============================    ");
         }
 
         private static void TelaLogin()
@@ -78,5 +89,6 @@ namespace oop_bank.Classes
            
 
         }
+
     }
 }
